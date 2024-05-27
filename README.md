@@ -55,3 +55,24 @@ int _tmain()
 	return 0;
 }
 
+## 설명
+시리얼 넘버가 12345로 설정이 되어 있고 사용자로부터 시리얼 넘버를 입력받아 12345와 같은지 비교하는 코드이다
+x64dbg로 시리얼 넘버를 크랙하는 간단한 작업을 수행할 것이다
+
+x64dbg를 실행시켜서 실행파일을 불러온다
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/1c6aae8d-c573-48cd-aabf-913d1b7756ae)
+그 다음 우클릭 후 다음을 찾기->모든 유저 모듈->문자열 참조를 눌러서 시리얼 넘버를 입력받는 곳으로 간다
+
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/a40413bd-22f2-4f90-a495-2999e7e87dfe)
+해당 코드부분으로 온 후 중단점을 설정한다
+
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/95d936c3-8603-495c-80b0-65c49a232847)
+그 다음 코드를 실행시켜서 시리얼 넘버를 입력받는 단계까지 오면 틀린 시리얼 넘버를 입력한다
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/91d3b7c7-9a89-4bb1-aa58-8e45327f7482)
+이렇게 입력한 후 엔터를 누르면 'je' 부분으로 오는데 이는 입력받은 값과 시리얼 넘버를 비교하여 같으면 점프를 뛰는 opcode이다
+
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/da3fcf61-929f-4370-b2b2-3cf9af8ef469)
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/66cad0e0-df2f-41d3-98fc-e5297330a49f)
+여기서 0으로 되어있는 제로 플래그를 1로 바꾸면 틀린 시리얼 넘버를 입력받아도 제로 플래그가 1이기 때문에 참으로 인식되어 점프를 뛰게 된다
+![image](https://github.com/dbs1339/Simple-Reversing/assets/128207214/78051c63-21d0-4e28-890c-f0969108df78)
+이렇게 Corret Serial Number 문구가 뜨게 된다
