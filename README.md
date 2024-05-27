@@ -35,7 +35,9 @@ Hello World를 찾았으면 이를 Goodmorning으로 바꿔준다
 리버싱2의 소스코드
 
 #include <windows.h>
+
 #include <stdio.h>
+
 #include <tchar.h>
 
 int _tmain()
