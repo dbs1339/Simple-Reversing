@@ -11,6 +11,7 @@
 
 int _tmain()
 {
+
 	MessageBox(NULL, _T("Hello World!"), _T("Hello World!"), MB_OK);
  
 	return 0;
@@ -41,8 +42,11 @@ Hello World를 찾았으면 이를 Goodmorning으로 바꿔준다
 #include <tchar.h>
 
 int _tmain()
+
 {
+
 	int nSerial = 12345;
+ 
 	int nInput = 0;
 
 	printf("input Serial ( 5 numbers ) : ");
